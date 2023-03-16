@@ -1,0 +1,78 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Hecho con gusto por Leislie R. Manjarrez O.
+
+Laboratorio 53- Editando temas de los graficos con ggplot2
+
+Instalar paqueterias
+install.packages("gapminder")
+install.packages("ggplot2")
+
+Llamar la librerias
+```{r}
+library(gapminder)
+library(ggplot2)
+```
+
+Cargar los datos al entorno
+```{r}
+data("gapminder")
+```
+
+Filtrado por año 2007
+```{r}
+gapminder2007 <- gapminder[gapminder$year == '2007',]
+```
+
+Escala continua (variable continua)
+Grafico de puntos por poblacion
+```{r}
+p1 <- ggplot(data = gapminder2007,
+             mapping = aes(x= gdpPercap,
+                           y = lifeExp,
+                           color = continent))+
+  geom_point()
+```
+
+Ver el grafico
+```{r}
+p1
+```
+
+Utilizar temas basicos en ggplot
+```{r}
+p1 + theme_bw()
+p1 + theme_minimal()
+```
+
+Para acceder a mas temas instalar siguiente paqueteria
+install.packages('ggthemes')
+
+Llamar a la libreria
+```{r}
+library(ggthemes)
+```
+
+Utilizar los nuevos temas y colores disponibles
+```{r}
+p1 + theme_economist() + scale_color_economist()
+p1 + theme_excel_new() + scale_color_excel_new()
+p1 + theme_calc() + scale_color_calc()
+p1 + theme_excel() + scale_color_excel()
+p1 + theme_few() + scale_color_few()
+p1 + theme_fivethirtyeight() + scale_color_fivethirtyeight()
+p1 + theme_gdocs() + scale_color_gdocs()
+p1 + theme_grey() + scale_color_grey()
+p1 + theme_hc() + scale_color_hc()
+p1 + theme_pander() + scale_color_pander()
+p1 + theme_solarized() + scale_color_solarized()
+p1 + theme_stata() + scale_color_stata()
+p1 + theme_wsj() + scale_color_wsj()
+p1 + theme_foundation() + scale_color_canva()
+p1 + theme_igray() 
+p1 + theme_map() + scale_color_colorblind()
+p1 + theme_solarized_2() + scale_color_discrete()
+```
